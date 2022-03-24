@@ -9,6 +9,12 @@ body {
   background: lightgray;
 }
 
+.widget > svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .widget {
   border: 1px solid green;
   padding: 25px;
