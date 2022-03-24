@@ -8,6 +8,7 @@ body {
 }
 
 .widget {
+  border: 1px solid green;
   padding: 25px;
   position: fixed;
   overflow: hidden;
@@ -31,6 +32,7 @@ body {
 }
 
 .slider {
+  border: 1px solid orange;
   display: flex;
   flex-wrap: nowrap;
   transition: 150ms ease;
@@ -61,6 +63,7 @@ body {
 }
 
 .slide {
+  border: 1px solid red;
   flex: 1 0 100% !important;
   display: flex;
   transition: .1s ease;
