@@ -7,11 +7,12 @@ function behavior () {
 }
 
 function slider ( widget ) {
+	const slider = widget.querySelector('.slider')
 	const triggerList = widget.querySelectorAll('.trigger')
 	;[...triggerList].forEach( triggerElem => {
 		triggerElem.addEventListener('click', (e) => {
 			e.preventDefault()
-			widget.dataset.slide = triggerElem.dataset.trigger;
+			slider.dataset.slide = triggerElem.dataset.trigger;
 		})
 	} )
 
@@ -30,24 +31,25 @@ function App() {
 		'bottom-right',
 	]
 
+	const slides = [
+		'',
+		'collapsed',
+		'main',
+		'expanded',
+	]
+
 	return positionList.map( position => (
 		<div key={position} className={`widget widget-${position}`}>
 			<div className="slider">
-				<div className="slide" data-slide='collapsed' >
-					<div>
-						<button className='trigger' data-trigger='main' >main</button>
-					</div>
+				<div className="slide" data-slide={slides[1]}>
+					<button className='trigger' data-trigger={slides[2]}>main</button>
 				</div>
-				<div className="slide" data-slide="main">
-					<div>
-						<button className='trigger' data-trigger='expanded'>expand ></button>
-						<button className='trigger' data-trigger='collapsed'>collapse x</button>
-					</div>
+				<div className="slide" data-slide={slides[2]}>
+					<button className='trigger' data-trigger={slides[1]}>collapse x</button>
+					<button className='trigger' data-trigger={slides[3]}>expand ></button>
 				</div>
-				<div className="slide" data-slide="expanded">
-					<div>
-						<button className='trigger' data-trigger='main' >main</button>
-					</div>
+				<div className="slide" data-slide={slides[3]}>
+					<button className='trigger' data-trigger={slides[2]}>main</button>
 				</div>
 			</div>
 		</div>

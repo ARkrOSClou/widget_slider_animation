@@ -36,50 +36,36 @@ body {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
-  & > * {
-    flex: 1 0 100% !important;
-    display: flex;
-    .widget-top-left & {
-      align-items: flex-start;
-      justify-content: flex-start;
-    }
-    .widget-top-right & {
-      align-items: flex-start;
-      justify-content: flex-end;
-    }
-    .widget-bottom-left & {
-      align-items: flex-end;
-      justify-content: flex-start;
-    }
-    .widget-bottom-right & {
-      align-items: flex-end;
-      justify-content: flex-end;
-    }
+  transition: 150ms ease;
+  &[data-slide='collapsed'] {
+    transform: translateX(0);
+  }
+  &, &[data-slide='main'] {
+    transform: translateX(-100%);
+  }
+  &[data-slide='expanded'] {
+    transform: translateX(-200%);
   }
 }
 
 .slide {
-  & > div {
-    content: '';
-    display: block;
-    border: 1px solid #000;
+  border: 1px solid #000;
+  flex: 1 0 100% !important;
+  display: flex;
+  .widget-top-left & {
+    align-items: flex-start;
+    justify-content: flex-start;
   }
-  &[data-slide='main'] {
-    & > div {
-      width: 175px;
-      height: 90px;
-    }
+  .widget-top-right & {
+    align-items: flex-start;
+    justify-content: flex-end;
   }
-  &[data-slide='collapsed'] {
-    & > div {
-      width: 40px;
-      height: 40px;
-    }
+  .widget-bottom-left & {
+    align-items: flex-end;
+    justify-content: flex-start;
   }
-  &[data-slide='expanded'] {
-    & > div {
-      width: 175px;
-      height: 130px;
-    }
+  .widget-bottom-right & {
+    align-items: flex-end;
+    justify-content: flex-end;
   }
 }
