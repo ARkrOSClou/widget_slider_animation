@@ -28,19 +28,37 @@ function App() {
 		'top-left',
 		'top-right',
 		'bottom-left',
-		'bottom-right',
+		// 'bottom-right',
 	]
 
 	const slides = [
-		'',
 		'collapsed',
 		'main',
 		'expanded',
 	]
+	slides.unshift('')
 
-	return positionList.map( position => (
-		<div key={position} className={`widget widget-${position}`}>
-			<div className="slider">
+	return <>
+		{positionList.map( position => (
+			<div key={position} className={`widget widget-${position}`}>
+				<div className="slider">
+					<div className="slide" data-slide={slides[1]}>
+						<button className='trigger' data-trigger={slides[2]}>main</button>
+					</div>
+					<div className="slide" data-slide={slides[2]}>
+						<button className='trigger' data-trigger={slides[1]}>collapse x</button>
+						<button className='trigger' data-trigger={slides[3]}>expand ></button>
+					</div>
+					<div className="slide" data-slide={slides[3]}>
+						<button className='trigger' data-trigger={slides[2]}>main</button>
+					</div>
+				</div>
+			</div>
+		) )}
+
+
+		<div className={`widget widget-bottom-right`}>
+			<div className="slider slider-direction-horizontal">
 				<div className="slide" data-slide={slides[1]}>
 					<button className='trigger' data-trigger={slides[2]}>main</button>
 				</div>
@@ -53,7 +71,7 @@ function App() {
 				</div>
 			</div>
 		</div>
-	) )
+	</>
 }
 
 export default App;

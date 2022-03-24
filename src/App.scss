@@ -34,20 +34,38 @@ body {
 .slider {
   width: 175px;
   height: 130px;
+  transition: 150ms ease;
+}
+
+.slider {
   display: flex;
   flex-wrap: nowrap;
-  flex-direction: row;
-  transition: 150ms ease;
-  &[data-slide='collapsed'] {
-    transform: translateX(0);
+  &, &.slider-direction-vertical {
+    flex-direction: column !important;
+    &[data-slide='collapsed'] {
+      transform: translateY(0);
+    }
+    &, &[data-slide='main'] {
+      transform: translateY(-100%);
+    }
+    &[data-slide='expanded'] {
+      transform: translateY(-200%);
+    }
   }
-  &, &[data-slide='main'] {
-    transform: translateX(-100%);
-  }
-  &[data-slide='expanded'] {
-    transform: translateX(-200%);
+  &.slider-direction-horizontal {
+    flex-direction: row !important;
+    &[data-slide='collapsed'] {
+      transform: translateX(0);
+    }
+    &, &[data-slide='main'] {
+      transform: translateX(-100%);
+    }
+    &[data-slide='expanded'] {
+      transform: translateX(-200%);
+    }
   }
 }
+
 
 .slide {
   border: 1px solid #000;
