@@ -41,7 +41,7 @@ function App() {
 	return <>
 		{positionList.map( position => (
 			<div key={position} className={`widget widget-${position}`}>
-				<div className="slider">
+				<div className="slider" style={{width:175, height:130}}>
 					<div className="slide" data-slide={slides[1]}>
 						<button className='trigger' data-trigger={slides[2]}>main</button>
 					</div>
@@ -58,7 +58,7 @@ function App() {
 
 
 		<div className={`widget widget-bottom-right`}>
-			<div className="slider slider-direction-horizontal">
+			<div className="slider slider-direction-horizontal" style={{width:175, height:130}}>
 				<div className="slide" data-slide={slides[1]}>
 					<button className='trigger' data-trigger={slides[2]}>main</button>
 				</div>

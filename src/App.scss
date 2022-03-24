@@ -8,7 +8,6 @@ body {
 }
 
 .widget {
-  border: 1px solid tomato;
   padding: 25px;
   position: fixed;
   overflow: hidden;
@@ -32,14 +31,9 @@ body {
 }
 
 .slider {
-  width: 175px;
-  height: 130px;
-  transition: 150ms ease;
-}
-
-.slider {
   display: flex;
   flex-wrap: nowrap;
+  transition: 150ms ease;
   &, &.slider-direction-vertical {
     flex-direction: column !important;
     &[data-slide='collapsed'] {
@@ -66,9 +60,7 @@ body {
   }
 }
 
-
 .slide {
-  border: 1px solid #000;
   flex: 1 0 100% !important;
   display: flex;
   transition: .1s ease;
