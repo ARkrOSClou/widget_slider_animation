@@ -12,6 +12,7 @@ body {
   padding: 25px;
   position: fixed;
   overflow: hidden;
+  pointer-events: none;
   &.widget-top-left {
     top: 0;
     left: 0;
@@ -52,6 +53,22 @@ body {
   border: 1px solid #000;
   flex: 1 0 100% !important;
   display: flex;
+  transition: .1s ease;
+  opacity: 0;
+  .slider:not([data-slide]) &[data-slide='main'] {
+    opacity: 1;
+    * {
+      pointer-events: initial;
+    }
+  }
+  @each $slide in 'main', 'collapsed', 'expanded' {
+    [data-slide='#{$slide}'] &[data-slide='#{$slide}'] {
+      opacity: 1;
+      * {
+        pointer-events: initial;
+      }
+    }
+  }
   .widget-top-left & {
     align-items: flex-start;
     justify-content: flex-start;
