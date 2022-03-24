@@ -1,22 +1,6 @@
 import './App.scss'
 import { useEffect } from 'react'
-
-function behavior() {
-  const widgets = document.querySelectorAll('.widget')
-  // @ts-ignore
-  ;[...widgets].forEach((widget) => slider(widget))
-}
-
-function slider(widget) {
-  const slider = widget.querySelector('.slider')
-  const triggerList = widget.querySelectorAll('.trigger')
-  ;[...triggerList].forEach((triggerElem) => {
-    triggerElem.addEventListener('click', (e) => {
-      e.preventDefault()
-      slider.dataset.slide = triggerElem.dataset.trigger
-    })
-  })
-}
+import { behavior } from './slider'
 
 function App() {
   useEffect(() => {
@@ -39,22 +23,31 @@ function App() {
         <div key={position} className={`widget widget-${position}`}>
           <div className="slider" style={{ width: 175, height: 130 }}>
             <div className="slide" data-slide={slidesSchema[1]}>
-              <button className="trigger" data-trigger={slidesSchema[2]}>
-                main
-              </button>
+              <div className="slide-wrapper">
+                <h4>slide: collapsed</h4>
+                <button className="trigger" data-trigger={slidesSchema[2]}>
+                  to main
+                </button>
+              </div>
             </div>
             <div className="slide" data-slide={slidesSchema[2]}>
-              <button className="trigger" data-trigger={slidesSchema[1]}>
-                collapse x
-              </button>
-              <button className="trigger" data-trigger={slidesSchema[3]}>
-                expand {'>'}
-              </button>
+              <div className="slide-wrapper">
+                <h4>slide: main</h4>
+                <button className="trigger" data-trigger={slidesSchema[1]}>
+                  collapse x
+                </button>
+                <button className="trigger" data-trigger={slidesSchema[3]}>
+                  expand {'>'}
+                </button>
+              </div>
             </div>
             <div className="slide" data-slide={slidesSchema[3]}>
-              <button className="trigger" data-trigger={slidesSchema[2]}>
-                main
-              </button>
+              <div className="slide-wrapper">
+                <h4>slide: expanded</h4>
+                <button className="trigger" data-trigger={slidesSchema[2]}>
+                  to main
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -63,22 +56,31 @@ function App() {
       <div className={`widget widget-bottom-right`}>
         <div className="slider slider-direction-horizontal" style={{ width: 175, height: 130 }}>
           <div className="slide" data-slide={slidesSchema[1]}>
-            <button className="trigger" data-trigger={slidesSchema[2]}>
-              main
-            </button>
+            <div className="slide-wrapper">
+              <h4>slide: collapsed</h4>
+              <button className="trigger" data-trigger={slidesSchema[2]}>
+                to main
+              </button>
+            </div>
           </div>
           <div className="slide" data-slide={slidesSchema[2]}>
-            <button className="trigger" data-trigger={slidesSchema[1]}>
-              collapse x
-            </button>
-            <button className="trigger" data-trigger={slidesSchema[3]}>
-              expand {'>'}
-            </button>
+            <div className="slide-wrapper">
+              <h4>slide: main</h4>
+              <button className="trigger" data-trigger={slidesSchema[1]}>
+                collapse x
+              </button>
+              <button className="trigger" data-trigger={slidesSchema[3]}>
+                expand {'>'}
+              </button>
+            </div>
           </div>
           <div className="slide" data-slide={slidesSchema[3]}>
-            <button className="trigger" data-trigger={slidesSchema[2]}>
-              main
-            </button>
+            <div className="slide-wrapper">
+              <h4>slide: expanded</h4>
+              <button className="trigger" data-trigger={slidesSchema[2]}>
+                to main
+              </button>
+            </div>
           </div>
         </div>
       </div>
