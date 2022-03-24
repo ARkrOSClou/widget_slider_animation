@@ -1,4 +1,6 @@
 
+$sliderSchema: 'collapsed', 'main', 'expanded';
+
 * {
   box-sizing: border-box;
 }
@@ -76,7 +78,7 @@ body {
       pointer-events: initial;
     }
   }
-  @each $slide in 'main', 'collapsed', 'expanded' {
+  @each $slide in $sliderSchema {
     [data-slide='#{$slide}'] &[data-slide='#{$slide}'] {
       opacity: 1;
       * {
