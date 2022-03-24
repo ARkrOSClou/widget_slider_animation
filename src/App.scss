@@ -71,6 +71,7 @@ body {
 
 .slide-wrapper {
   border: 1px solid orange;
+  pointer-events: none;
 }
 
 .slide {
@@ -78,17 +79,12 @@ body {
   display: flex;
   transition: .1s ease;
   opacity: 0;
-  .slider:not([data-slide]) &[data-slide='main'] {
-    opacity: 1;
-    * {
-      pointer-events: initial;
-    }
-  }
   @each $slide in $sliderSchema {
+    .slider:not([data-slide]) &[data-slide='main'],
     [data-slide='#{$slide}'] &[data-slide='#{$slide}'] {
       opacity: 1;
-      * {
-        pointer-events: initial;
+      .slide-wrapper {
+        pointer-events: all;
       }
     }
   }
